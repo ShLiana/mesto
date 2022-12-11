@@ -1,0 +1,33 @@
+.profile__editButton {
+  width: 24px;
+  height: 24px;
+  padding: 7px;
+  background-repeat: no-repeat;
+  border: 1px solid #ffffff; /* Параметры рамки */
+  background: #131313;
+  background-image: url(../../../images/Vector.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 37px;
+  margin-left: 18px;
+}
+
+@media screen and (max-width: 646px) {
+  .profile__editButton {
+    width: 7.5px;
+    height: 7.5px;
+    padding: 8px;
+    
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__editButton {
+    width: 7.5px;
+  height: 7.5px;
+  padding: 8px;
+  margin-top: 34px;
+    margin-left: 10px;
+
+  }
+}

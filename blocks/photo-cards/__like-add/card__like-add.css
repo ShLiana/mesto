@@ -1,0 +1,12 @@
+.card__like-add {
+  width: 24px;
+  height: 20px;
+  background-repeat: no-repeat;
+  border: 1px solid #ffffff; /* Параметры рамки */
+  background: #ffffff;
+  background-image: url(../../../images/Vector3.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin: 4px;
+  padding: 0;
+}

@@ -1,0 +1,22 @@
+.profile__addButton {
+  width: 150px;
+  height: 50px;
+  padding: 14px 64px 14px 64px;
+  background-repeat: no-repeat;
+  border: 2px solid #ffffff; /* Параметры рамки */
+  background: #131313;
+  background-image: url(../../../images/Vector2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  align-self: center;
+  background-size: 22px 22px;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__addButton {
+    width: 282px;
+    height: 50px;
+    padding: 22px 131px 22px 131px;
+    background-size: 16px 16px;
+  }
+}
