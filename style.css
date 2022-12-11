@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -6,3 +7,212 @@
 
 
 
+=======
+.page {
+  background-color: #131313;
+  font-family: "Inter", "Arial", sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility; /*оптимизация шрифта*/
+
+}
+
+.root {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 880px;
+  min-width: 282px;
+
+}
+
+.header {
+  max-width: 880px;
+  height: 74px;
+  border-bottom: solid 1px #545454;
+  display: flex;
+  align-items: flex-start;
+ padding: 45px 0 0;
+ margin: 0 auto;
+}
+
+
+.header__logo {
+  max-width: 142px;
+  max-height: 33px;
+}
+
+.content {
+  /*margin: 0 auto;
+  max-width: 1280px;
+  min-width: 320px;
+  font-family: "Inter", "Arial", sans-serif;
+  padding: 0;*/
+  display: block;
+}
+
+.profile {
+  /*max-width: 880px;
+  max-height: 120px;*/
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile__edit-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile__user-info {
+  margin-left: 31px;
+  margin-top: 0;
+}
+
+.profile__avatar {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 50%;
+}
+
+.profile__user-name {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  color: #ffffff;
+  margin-bottom: 6px;
+  margin-top: 23px;
+}
+
+.profile__user-job {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.profile__editButton {
+  width: 24px;
+  height: 24px;
+  padding: 7px;
+  background-repeat: no-repeat;
+  border: 1px solid #ffffff; /* Параметры рамки */
+  background: #131313;
+  background-image: url(./images/Vector.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 37px;
+  margin-left: 18px;
+}
+
+.profile__addButton {
+  width: 150px;
+  height: 50px;
+  padding: 14px 64px 14px 64px;
+  background-repeat: no-repeat;
+  border: 2px solid #ffffff; /* Параметры рамки */
+  background: #131313;
+  background-image: url(./images/Vector2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  align-self: center;
+}
+
+.photo__cards {
+  /*max-width: 880px;
+  max-height: 774px;*/
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px 17px;
+  margin: 50px auto 68px;
+}
+
+.cards__item {
+  background-color: #fff;
+  max-width: 282px;
+  max-height: 361px;
+  margin: 0;
+  border-radius: 10px;
+overflow: hidden;
+}
+
+.card__img {
+  display: block;
+ width: 282px;
+ height: 282px;
+  object-fit: cover;
+  object-position: center center;
+  
+}
+
+.card__info {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-left: 21px;
+  margin-right: 15px;
+  margin-top: 25px;
+  margin-bottom: 31px;
+  padding: 0;
+}
+
+.card__text {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis; /*то, что не поместилось, отображается многоточием*/
+  white-space: nowrap; /*обработка пробельных символов - слова не переносятся*/
+  max-width: 190px;
+}
+
+.card__like-add {
+  width: 24px;
+  height: 20px;
+  background-repeat: no-repeat;
+  border: 1px solid #ffffff; /* Параметры рамки */
+  background: #ffffff;
+  background-image: url(./images/Vector3.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin: 4px;
+  padding: 0;
+}
+
+.footer {
+  margin: 0 auto 0;
+  padding-bottom: 60px;
+  color: #545454;
+  max-width: 880px;
+  height: 18px;
+}
+
+.footer__copyright {
+  max-width: 318px;
+  height: 18px;
+  margin-left: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+>>>>>>> c5bc81459ee883dfc6cedbcf0f59ff5fb30be280
