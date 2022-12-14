@@ -2,13 +2,13 @@
   width: 150px;
   height: 50px;
   padding: 14px 64px 14px 64px;
-  background-repeat: no-repeat;
   border: 2px solid #ffffff; /* Параметры рамки */
   background: #131313;
   background-image: url(../../../images/Vector2.svg);
   background-position: center;
   align-self: center;
   background-size: 22px 22px;
+  background-repeat: no-repeat;
   cursor: pointer;
 }
 
