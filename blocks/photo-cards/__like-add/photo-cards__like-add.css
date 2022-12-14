@@ -1,4 +1,4 @@
-.card__like-add {
+.photo-cards__like-add {
   width: 24px;
   height: 20px;
   border: 1px solid #ffffff; /* Параметры рамки */
@@ -10,10 +10,10 @@
   padding: 0;
 }
 
-.card__like-add:hover {
+.photo-cards__like-add:hover {
   opacity: 50%;
 }
 
-/*.card__like-add_active {
+/*.photo-cards__like-add_active {
 
 }*/
