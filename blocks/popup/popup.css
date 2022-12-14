@@ -6,7 +6,6 @@
   top: 0;
   left: 0;
   color: black;
-  display: flex;
   justify-content: stretch;
   display: none;
 }
