@@ -13,13 +13,7 @@
   }
 }
 
-@media screen and (max-width: 646px) and (min-width: 603px) {
-  .photo-cards {
-    margin: 60px 10px 48px;
-  }
-}
-
-@media screen and (max-width: 602px) and (min-width: 320px) {
+@media screen and (max-width: 647px) and (min-width: 320px) {
   .photo-cards {
     grid-template-columns: minmax(282px, 1fr);
     margin: 36px auto 0;

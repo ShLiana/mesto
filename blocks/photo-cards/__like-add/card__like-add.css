@@ -10,3 +10,11 @@
   margin: 4px;
   padding: 0;
 }
+
+.card__like-add:hover {
+  opacity: 50%;
+}
+
+/*.card__like-add_active {
+
+}*/

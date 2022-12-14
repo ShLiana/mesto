@@ -1,0 +1,34 @@
+.popup__cross {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #000000;
+  background-image: url(../../../images/CloseIcon.png);
+  padding: 0;
+  top: -40px;
+  right: -40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.popup__cross:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 596px) {
+  .popup__cross {
+    width:30px;
+    height: 30px;
+    top: -37px;
+    right: 0px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .popup__cross {
+    width: 20px;
+    height: 20px;
+    top: -25px;
+    right: -11px;
+  }
+}
