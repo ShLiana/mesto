@@ -2,9 +2,9 @@ let popupOpened = document.querySelector(".popup");
 let formElement = document.querySelector(".popup__form"); // Воспользуйтесь методом querySelector()
 let nameInput = document.querySelector(".popup__input_type_name"); // Воспользуйтесь инструментом .querySelector()
 let jobInput = document.querySelector(".popup__input_type_job"); // Воспользуйтесь инструментом .querySelector()
-let editProfile = document.querySelector(".profile__editButton"); //редактировать профиль - нажимаем на ручку
-let userName = document.querySelector(".profile__userName");
-let userJob = document.querySelector(".profile__userJob");
+let editProfile = document.querySelector(".profile__edit-button"); //редактировать профиль - нажимаем на ручку
+let userName = document.querySelector(".profile__user-name");
+let userJob = document.querySelector(".profile__user-job");
 let popupClose = document.querySelector(".popup__cross");
 
 //добавим функцию, ктр добавляет селектор, чтобы показать попап

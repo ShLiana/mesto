@@ -1,18 +1,21 @@
 .profile {
   max-width: 880px;
-  max-height: 120px;
   margin: 40px auto;
   display: flex;
   justify-content: space-between;
 }
 
-@media screen and (max-width: 646px) {
+@media screen and (max-width: 900px) {
+  .profile {
+    max-width: calc(100% - 2 * 15px);
+  }
+}
+
+@media screen and (max-width: 677px) {
   .profile {
     max-width: calc(100% - 2 * 10px);
-    display: flex;
     flex-direction: column;
-    max-height: 286px;
-    margin: 13px auto;
+    margin-top: 13px;
   }
 }
 
@@ -20,6 +23,7 @@
   .profile {
     max-width: calc(100% - 2 * 19px);
     padding-top: 41px;
-    margin: 0 auto;
+    margin-top: 0;
+    margin-bottom: 7px;
   }
 }
