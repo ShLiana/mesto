@@ -6,10 +6,7 @@
   top: 0;
   left: 0;
   color: black;
-  justify-content: stretch;
+  justify-content: center;
+  align-items: center;
   display: none;
 }
-
-
-
-

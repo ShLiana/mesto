@@ -8,5 +8,7 @@
     max-width: 103px;
     max-height: 24px;
     padding-left: 27px;
+    padding-top: 0;
+    padding-bottom: 10px;
   }
 }

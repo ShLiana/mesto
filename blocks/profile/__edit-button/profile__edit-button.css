@@ -1,9 +1,10 @@
-.profile__editButton {
+.profile__edit-button {
   width: 24px;
   height: 24px;
   padding: 7px;
   border: 1px solid #ffffff; /* Параметры рамки */
-  background: #131313;
+  background-color: transparent;
+  color: inherit;
   background-image: url(../../../images/Vector.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -12,23 +13,20 @@
   cursor: pointer;
 }
 
-.profile__editButton:hover {
-  opacity: 0.8;
+.profile__edit-button:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 646px) {
-  .profile__editButton {
-    width: 7.5px;
-    height: 7.5px;
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
     padding: 8px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .profile__editButton {
-    width: 7.5px;
-    height: 7.5px;
-    padding: 8px;
+  .profile__edit-button {
     margin-top: 34px;
     margin-left: 10px;
   }
