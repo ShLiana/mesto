@@ -11,6 +11,7 @@
   cursor: pointer;
   background-color: transparent;
   color: inherit;
+  border: 0;
 }
 
 .popup__cross:hover {
@@ -30,6 +31,6 @@
   .popup__cross {
     width: 22px;
     height: 22px;
-    top: -40px;
+    top: -38px;
   }
 }

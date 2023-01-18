@@ -5,19 +5,17 @@
   width: 430px;
   position: relative;
   margin: 0 auto;
-  top: -75px;
 }
 
 @media screen and (max-width: 564px) {
   .popup__container {
     margin-bottom: 0px;
     max-width: calc(100% - 2 * 30px);
-}
+  }
 }
 
 @media screen and (max-width: 320px) {
   .popup__container {
     max-width: calc(100% - 2 * 19px);
-    margin-bottom: 272px;
-}
+  }
 }
