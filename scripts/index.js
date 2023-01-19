@@ -1,13 +1,10 @@
-const popup = document.querySelector(".popup"); //ищем все попапы в html по классу popup
-const popupClose = document.querySelector(".popup__cross"); //ищем кнопку закрытия всех попапов по указанному классу popup__cross 
-
 const profileSection = document.querySelector(".profile"); //ищет секцию профиль
-const editProfileButton = profileSection.querySelector(".profile__edit-button"); //редактировать профиль - нажимаем на ручку (profile__edit-button)
+const popupProfileOpenButton = profileSection.querySelector(".profile__edit-button"); //редактировать профиль - нажимаем на ручку (profile__edit-button)
 const addCardButton = profileSection.querySelector(".profile__add-button"); //кнопка добавления карточек (+)
 const userName = profileSection.querySelector(".profile__user-name"); //вытащим имя пользователя, ктр уже забито в профиле
 const userJob = profileSection.querySelector(".profile__user-job");
 const popupProfile = document.querySelector(".profilePopup"); //ищем профиль по уникальному классу profilePopup
-const formElement = popupProfile.querySelector(".popup__form"); 
+const formProfileElement = popupProfile.querySelector(".popup__form"); 
 const nameInput = document.querySelector(".popup__input_type_name"); //введенное имя
 const jobInput = document.querySelector(".popup__input_type_job");
 const profileCloseButton = popupProfile.querySelector(".popup__cross"); //закрыть попап профиля
@@ -72,7 +69,7 @@ initialCards.map(function (item) {
 }); 
 
 //открыть попап профиля, тут же данные о пользователе
-editProfileButton.addEventListener("click", () => {
+popupProfileOpenButton.addEventListener("click", () => {
   openPopup (popupProfile);
   nameInput.value = userName.textContent; // Получите значение полей jobInput и nameInput из свойства value
   jobInput.value = userJob.textContent;
@@ -85,7 +82,7 @@ function addNewUserInfo(evt) {
   userJob.textContent = jobInput.value;
   closePopup(popupProfile);
 };
-formElement.addEventListener("submit", addNewUserInfo);
+formProfileElement.addEventListener("submit", addNewUserInfo);
 
 function addNewCard (evt) {
   evt.preventDefault();
