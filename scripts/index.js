@@ -143,6 +143,7 @@ addCardCloseButton.addEventListener("click", () => {
 //закрыть попап Zoom
 zoomCloseButton.addEventListener("click", () => {
   closePopup (popupZoom);
+  console.log(123);
 }); 
 
 
