@@ -23,22 +23,11 @@ const placeNameInput = popupAddCard.querySelector(".popup__input_type_title");
 const placeLinkInput = popupAddCard.querySelector(".popup__input_type_link");
 const addCardCloseButton = popupAddCard.querySelector(".addCardClose"); //закрываем попап addCardPopup,нажимая на х  
 
+const formElement = document.querySelector('.popup__form');
+const formInput = formElement.querySelector('.popup__input');
+const formError = formElement.querySelector(`.${formInput.id}-error`); 
 const submitForAddCard = popupAddCard.querySelector('.popup__save-button'); 
 
-//закрытие попапа по оверлау
-const popupList = Array.from(document.querySelectorAll('.popup'));
-// Функция закрытия открытого popup по клику
-popupList.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
-    console.log(evt);
-      if (evt.target.classList.contains('popup_opened')) {
-          closePopup(popup)
-      }
-      if (evt.target.classList.contains('popup__cross')) {
-        closePopup(popup)
-      }
-  })
-})
 
 //общая функция открытия попапов
 function openPopup(popup) {
@@ -59,6 +48,20 @@ function closePopupByEsc(event) {
     closePopup(forOpenPopupByEsc);
    }
 } 
+
+const popupList = Array.from(document.querySelectorAll('.popup'));
+// Функция закрытия открытого popup по клику по оверлау
+popupList.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    console.log(evt);
+      if (evt.target.classList.contains('popup_opened')) {
+          closePopup(popup)
+      }
+      if (evt.target.classList.contains('popup__cross')) {
+        closePopup(popup)
+      }
+  })
+})
 
 //создать базовые карточки
 function createCard(item) {
@@ -120,8 +123,8 @@ function addNewCard (evt) {
   closePopup(popupAddCard);
   placeNameInput.value = "";
   placeLinkInput.value = "";
-  submitForAddCard.classList.add('popup__save-button_disabled'); //добавим неактивный класс кнопке "добавить", если инпуты не заполнены
-  submitForAddCard.disabled = true; //сделать кнопку "добавить" неактивной
+  submitForAddCard.classList.add('popup__save-button_disabled'); //добавим неактивный класс кнопке "добавить", если инпуты не заполнены - работает при повторном открывании после одного добавления карточки
+  submitForAddCard.disabled = true; //сделать кнопку "добавить" неактивной 
 };
 popupCreateCard.addEventListener("submit", addNewCard);
 
@@ -143,13 +146,10 @@ addCardCloseButton.addEventListener("click", () => {
 //закрыть попап Zoom
 zoomCloseButton.addEventListener("click", () => {
   closePopup (popupZoom);
-  console.log(123);
 }); 
 
 
-const formElement = document.querySelector('.popup__form');
-const formInput = formElement.querySelector('.popup__input');
-const formError = formElement.querySelector(`.${formInput.id}-error`); 
+
 
 
 

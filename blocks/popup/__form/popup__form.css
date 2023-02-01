@@ -2,10 +2,6 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-=======
-  align-items: center;
->>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
 }
 
 @media screen and (max-width: 320px) {

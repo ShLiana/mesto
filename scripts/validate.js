@@ -9,12 +9,13 @@ const config = {
 
 // Функция, которая добавляет класс с ошибкой
 const showInputError = (formElement, inputElement, errorMessage, config) => {
-  const formError = formElement.querySelector(`.${inputElement.id}-error`); //нашли span
+  const formError = formElement.querySelector(`.${inputElement.id}-error`); //нашли span с префиксом -error
   inputElement.classList.add(config.inputErrorClass);
 // Показывает сообщение об ошибке
   formError.textContent = errorMessage;
   formError.classList.add(config.errorClass);
 };
+
 // Функция, которая удаляет класс с ошибкой
 const hideInputError = (formElement, inputElement, config) => {
   const formError = formElement.querySelector(`.${inputElement.id}-error`);
@@ -24,18 +25,16 @@ const hideInputError = (formElement, inputElement, config) => {
   formError.textContent = '';
 };
 
-// Функция, которая которая проверяет валидность формы
+// Функция, которая которая проверяет валидность форм
 const isValid = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
-    // Если поле не прошло валидацию, то показываем ошибку
-    showInputError(formElement, inputElement, inputElement.validationMessage, config);
+        showInputError(formElement, inputElement, inputElement.validationMessage, config); // Если поле не прошло валидацию, то показываем ошибку
   } else {
-    // Если проходит валидацию, то скрываем ошибку
-    hideInputError(formElement, inputElement, config);
+        hideInputError(formElement, inputElement, config); // Если проходит валидацию, то скрываем ошибку
   ;}
 };
 
-// Проверка наличия невалидных инпутов
+// Проверка на наличие невалидных инпутов
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
@@ -48,12 +47,12 @@ const toggleButtonState = (inputList, buttonElement, config) => {
   buttonElement.classList.add(config.inactiveButtonClass);
   buttonElement.setAttribute('disabled', true);
 } else {
-  buttonElement.classList.remove(config.inactiveButtonClass);
-  buttonElement.removeAttribute('disabled');
+  buttonElement.classList.remove(config.inactiveButtonClass); //убираем класс
+  buttonElement.removeAttribute('disabled'); 
   }
 };
 
-// Вызываем функцию setEventListeners с передачей в нее массива полей ввода группы полей.
+// Функция setEventListeners - добавит обработчики сразу всем полям формы
 const setEventListeners = (formElement, config) => {
   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
@@ -67,7 +66,7 @@ const setEventListeners = (formElement, config) => {
   });
 };
 
-// включаем валидацию - функция enableValidation
+// Функция enableValidation - найдёт и переберёт все формы на странице
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((formElement) => {
