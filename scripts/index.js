@@ -23,6 +23,7 @@ const placeNameInput = popupAddCard.querySelector(".popup__input_type_title");
 const placeLinkInput = popupAddCard.querySelector(".popup__input_type_link");
 const addCardCloseButton = popupAddCard.querySelector(".addCardClose"); //закрываем попап addCardPopup,нажимая на х  
 
+<<<<<<< HEAD
 const submitForAddCard = popupAddCard.querySelector('.popup__save-button'); 
 
 //закрытие попапа по оверлау
@@ -39,16 +40,22 @@ popupList.forEach((popup) => {
       }
   })
 })
+=======
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
 
 //общая функция открытия попапов
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+<<<<<<< HEAD
   document.addEventListener('keyup', closePopupByEsc);
+=======
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
 }
 
 //общая функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+<<<<<<< HEAD
   document.removeEventListener('keyup', closePopupByEsc);
 }
 
@@ -60,6 +67,10 @@ function closePopupByEsc(event) {
    }
 } 
 
+=======
+}
+
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
 //создать базовые карточки
 function createCard(item) {
   const card = cardsTemplate.querySelector(".card").cloneNode(true); //клонировать темплейт, пч это шаблон
@@ -96,9 +107,15 @@ initialCards.map(function (item) {
 
 //открыть попап профиля, тут же данные о пользователе
 popupProfileOpenButton.addEventListener("click", () => {
+<<<<<<< HEAD
   nameInput.value = userName.textContent; // Получите значение полей jobInput и nameInput из свойства value
   jobInput.value = userJob.textContent;
   openPopup (popupProfile);
+=======
+  openPopup (popupProfile);
+  nameInput.value = userName.textContent; // Получите значение полей jobInput и nameInput из свойства value
+  jobInput.value = userJob.textContent;
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
 }); 
 
 //добавить имя и работу нового пользователя через submit
@@ -120,8 +137,11 @@ function addNewCard (evt) {
   closePopup(popupAddCard);
   placeNameInput.value = "";
   placeLinkInput.value = "";
+<<<<<<< HEAD
   submitForAddCard.classList.add('popup__save-button_disabled'); //добавим неактивный класс кнопке "добавить", если инпуты не заполнены
   submitForAddCard.disabled = true; //сделать кнопку "добавить" неактивной
+=======
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
 };
 popupCreateCard.addEventListener("submit", addNewCard);
 
@@ -147,9 +167,25 @@ zoomCloseButton.addEventListener("click", () => {
 
 
 
+<<<<<<< HEAD
 const formElement = document.querySelector('.popup__form');
 const formInput = formElement.querySelector('.popup__input');
 const formError = formElement.querySelector(`.${formInput.id}-error`); 
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+  
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
 
 
 

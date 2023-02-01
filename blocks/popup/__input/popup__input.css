@@ -7,11 +7,16 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
+<<<<<<< HEAD
   padding: 0;
+=======
+  padding: 38px 0 9px 0;
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
   margin: 0 auto;
   width: 358px;
   cursor: pointer;
 }
+<<<<<<< HEAD
 
 .popup__input:focus { 
   outline: none; /*уберем рамку пока вводится текст*/
@@ -26,6 +31,12 @@
 @media screen and (max-width: 467px) {
   .popup__input {
     max-width: 100%;
+=======
+
+@media screen and (max-width: 542px) {
+  .popup__input {
+    width: 238px;
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
   }
 }
 

@@ -64,6 +64,7 @@
           title="Закрыть"
         ></button>
         <h2 class="popup__header">Редактировать профиль</h2>
+<<<<<<< HEAD
 
         <form
           class="popup__form"
@@ -104,6 +105,26 @@
           </label>
 
           <button class="popup__save-button" type="submit" name="saveForm" disabled="disabled">
+=======
+        <form class="popup__form" name="editProfile" action="#" method="post">
+          <input
+            class="popup__input popup__input_type_name"
+            type="text"
+            name="addName"
+            value
+            placeholder="Имя пользователя"
+            autocomplete="off"
+          />
+          <input
+            class="popup__input popup__input_type_job"
+            type="text"
+            name="addJob"
+            value
+            placeholder="Род деятельности"
+            autocomplete="off"
+          />
+          <button class="popup__save-button" type="submit" name="saveForm">
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
             Сохранить
           </button>
         </form>
@@ -114,6 +135,7 @@
       <div class="popup__container">
         <button class="popup__cross addCardClose" type="button"></button>
         <h2 class="popup__title popup__header">Новое место</h2>
+<<<<<<< HEAD
         <form
           class="popup__form popup__content"
           name="createCards"
@@ -148,6 +170,25 @@
             />
             <span class="place-link-input-error popup__input-error"></span>
           </label>
+=======
+        <form class="popup__form popup__content" name="createCards" action="#">
+          <input
+            class="popup__input popup__input_type_title"
+            type="text"
+            name="placeNameInput"
+            value
+            placeholder="Название"
+            autocomplete="off"
+          />
+          <input
+            class="popup__input popup__input_type_link"
+            type="text"
+            name=" popupCreateCard"
+            value
+            placeholder="Ссылка на картинку"
+            autocomplete="off"
+          />
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
           <button
             class="popup__save-button"
             type="submit"
@@ -155,7 +196,10 @@
             value
             placeholder="Создать"
             autocomplete="off"
+<<<<<<< HEAD
             disabled="disabled"
+=======
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
           >
             Создать
           </button>
@@ -210,7 +254,10 @@
     </template>
 
     <script src="./scripts/card.js"></script>
+<<<<<<< HEAD
     <script src="./scripts/validate.js"></script>
+=======
+>>>>>>> 5bf2666e381715a0c1f9799bfc50dea221c8193b
     <script src="./scripts/index.js"></script>
   </body>
 </html>
