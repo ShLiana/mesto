@@ -7,15 +7,25 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
-  padding: 38px 0 9px 0;
+  padding: 0;
   margin: 0 auto;
   width: 358px;
   cursor: pointer;
 }
 
-@media screen and (max-width: 542px) {
+.popup__input:focus { 
+  outline: none; /*уберем рамку пока вводится текст*/
+}
+
+@media screen and (max-width: 564px) {
   .popup__input {
-    width: 238px;
+    width: 358px;
+  }
+}
+
+@media screen and (max-width: 467px) {
+  .popup__input {
+    max-width: 100%;
   }
 }
 

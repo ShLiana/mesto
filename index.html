@@ -45,108 +45,8 @@
           ></button>
         </section>
 
-        <section class="photo-cards" aria-label="Фотогалерея">
-          <div class="photo-cards__item">
-            <img
-              class="photo-cards__img"
-              src="./images/Moscow.jpg"
-              alt="Собор Василия Блаженного, Москва"
-            />
-            <div class="photo-cards__info">
-              <h2 class="photo-cards__text">Москва</h2>
-              <button
-                type="button"
-                class="photo-cards__like-add"
-                aria-label="Поставить лайк"
-                title="Поставить лайк"
-              ></button>
-            </div>
-          </div>
-
-          <div class="photo-cards__item">
-            <img
-              class="photo-cards__img"
-              src="./images/2.jpg"
-              alt="Мечеть Ляля-Тюльпан, Уфа"
-            />
-            <div class="photo-cards__info">
-              <h2 class="photo-cards__text">Уфа</h2>
-              <button
-                type="button"
-                class="photo-cards__like-add"
-                aria-label="Поставить лайк"
-                title="Поставить лайк"
-              ></button>
-            </div>
-          </div>
-
-          <div class="photo-cards__item">
-            <img
-              class="photo-cards__img"
-              src="./images/3.jpg"
-              alt="Калининград"
-            />
-            <div class="photo-cards__info">
-              <h2 class="photo-cards__text">Калининград</h2>
-              <button
-                type="button"
-                class="photo-cards__like-add"
-                aria-label="Поставить лайк"
-                title="Поставить лайк"
-              ></button>
-            </div>
-          </div>
-
-          <div class="photo-cards__item">
-            <img
-              class="photo-cards__img"
-              src="./images/Elbrus.png"
-              alt="Гора Эльбрус"
-            />
-            <div class="photo-cards__info">
-              <h2 class="photo-cards__text">Гора Эльбрус</h2>
-              <button
-                type="button"
-                class="photo-cards__like-add"
-                aria-label="Поставить лайк"
-                title="Поставить лайк"
-              ></button>
-            </div>
-          </div>
-
-          <div class="photo-cards__item">
-            <img
-              class="photo-cards__img"
-              src="./images/Dombai.png"
-              alt="Домбай"
-            />
-            <div class="photo-cards__info">
-              <h2 class="photo-cards__text">Домбай</h2>
-              <button
-                type="button"
-                class="photo-cards__like-add"
-                aria-label="Поставить лайк"
-                title="Поставить лайк"
-              ></button>
-            </div>
-          </div>
-
-          <div class="photo-cards__item">
-            <img
-              class="photo-cards__img"
-              src="./images/Karachaevsk.png"
-              alt="Карачаево-Черкесия"
-            />
-            <div class="photo-cards__info">
-              <h2 class="photo-cards__text">Карачаево-Черкесия</h2>
-              <button
-                type="button"
-                class="photo-cards__like-add"
-                aria-label="Поставить лайк"
-                title="Поставить лайк"
-              ></button>
-            </div>
-          </div>
+        <section class="gallery">
+          <ul class="gallery__list"></ul>
         </section>
       </main>
 
@@ -155,38 +55,162 @@
       </footer>
     </div>
 
-    <div class="popup">
+    <div class="popup profilePopup">
       <div class="popup__container">
         <button
-          class="popup__cross" type="button"
+          class="popup__cross"
+          type="button"
           aria-label="Завершить редактирование"
-          title="Завершить редактирование"
+          title="Закрыть"
         ></button>
         <h2 class="popup__header">Редактировать профиль</h2>
-        <form class="popup__form" name="editProfile" action="#" method="post">
-          <input
-            class="popup__input popup__input_type_name"
-            type="text"
-            name="addname"
-            value
-            placeholder="Имя пользователя"
-            autocomplete="off"
-          />
-          <input
-            class="popup__input popup__input_type_job"
-            type="text"
-            name="addJob"
-            value
-            placeholder="Род деятельности"
-            autocomplete="off"
-          />
-          <button class="popup__save-button" type="submit" name="saveForm">
+
+        <form
+          class="popup__form"
+          name="editProfile"
+          action="#"
+          method="post"
+          novalidate
+        >
+          <label class="form__field">
+            <input
+              id="user-name-input"
+              class="popup__input popup__input_type_name"
+              type="text"
+              name="addName"
+              value
+              placeholder="Имя пользователя"
+              autocomplete="off"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="user-name-input-error popup__input-error"></span>
+          </label>
+          <label class="form__field">
+            <input
+              id="user-job-input"
+              class="popup__input popup__input_type_job"
+              type="text"
+              name="addJob"
+              value
+              placeholder="Род деятельности"
+              autocomplete="off"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="user-job-input-error popup__input-error"></span>
+          </label>
+
+          <button class="popup__save-button" type="submit" name="saveForm" disabled="disabled">
             Сохранить
           </button>
         </form>
       </div>
     </div>
 
+    <div class="popup addCardPopup">
+      <div class="popup__container">
+        <button class="popup__cross addCardClose" type="button"></button>
+        <h2 class="popup__title popup__header">Новое место</h2>
+        <form
+          class="popup__form popup__content"
+          name="createCards"
+          action="#"
+          novalidate
+        >
+          <label class="form__field">
+            <input
+              id="place-name-input"
+              class="popup__input popup__input_type_title"
+              type="text"
+              name="placeNameInput"
+              value
+              placeholder="Название"
+              autocomplete="off"
+              minlength="2"
+              maxlength="30"
+              required
+            />
+            <span class="place-name-input-error popup__input-error"></span>
+          </label>
+          <label class="form__field">
+            <input
+              id="place-link-input"
+              class="popup__input popup__input_type_link"
+              type="URL"
+              name=" popupCreateCard"
+              value
+              placeholder="Ссылка на картинку"
+              autocomplete="off"
+              required
+            />
+            <span class="place-link-input-error popup__input-error"></span>
+          </label>
+          <button
+            class="popup__save-button"
+            type="submit"
+            name="createButton"
+            value
+            placeholder="Создать"
+            autocomplete="off"
+            disabled="disabled"
+          >
+            Создать
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup zoomPopup">
+      <div class="popup__zoom-container">
+        <button
+          class="popup__cross"
+          type="button"
+          aria-label="Завершить редактирование"
+          title="Закрыть"
+        ></button>
+        <div class="zoomPopup__photo-cards-info">
+          <img
+            class="zoomPopup__photo-cards-img"
+            src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg"
+            alt="Здесь должна быть картинка"
+          />
+          <h2 class="zoomPopup__photo-cards-text"></h2>
+        </div>
+      </div>
+    </div>
+
+    <template class="card-template">
+      <li class="card">
+        <button
+          class="card__delete"
+          type="button"
+          aria-label="Удалить"
+          title="Удалить фотографию"
+          alt="Здесь должна быть фотография"
+        ></button>
+        <img
+          class="card__image"
+          alt="Здесь должна быть картинка места"
+          src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg"
+        />
+
+        <div class="card__caption">
+          <h3 class="card__title"></h3>
+          <button
+            class="card__like"
+            type="button"
+            aria-label="Поставить лайк"
+            title="Нравится"
+          ></button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./scripts/card.js"></script>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
