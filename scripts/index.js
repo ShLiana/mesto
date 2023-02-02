@@ -38,7 +38,7 @@ function openPopup(popup) {
 //общая функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener('keyup', closePopupByEsc);
+  document.removeEventListener('keyup', closePopupByEsc); //удаляем обработчик Escape
 }
 
 //Функция закрытия попапа по нажатию на кнопку "ESC"
@@ -50,11 +50,10 @@ function closePopupByEsc(event) {
 } 
 
 const popupList = Array.from(document.querySelectorAll('.popup'));
-// Функция закрытия открытого popup по клику по оверлау
+// Функция закрытия открытого popup по клику по оверлау - Отдельные обработчики для крестиков не нужны, здесь универсально объединены обработчики оверлея и крестиков
 popupList.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
-    console.log(evt);
-      if (evt.target.classList.contains('popup_opened')) {
+        if (evt.target.classList.contains('popup_opened')) {
           closePopup(popup)
       }
       if (evt.target.classList.contains('popup__cross')) {
@@ -132,22 +131,6 @@ popupCreateCard.addEventListener("submit", addNewCard);
 addCardButton.addEventListener("click", () => {
   openPopup (popupAddCard);
 }); 
-
-//закрыть попап профиля
-profileCloseButton.addEventListener("click", () => {
-  closePopup (popupProfile);
-}); 
-
-//закрыть попап добавления новых карточек
-addCardCloseButton.addEventListener("click", () => {
-  closePopup (popupAddCard);
-}); 
-
-//закрыть попап Zoom
-zoomCloseButton.addEventListener("click", () => {
-  closePopup (popupZoom);
-}); 
-
 
 
 
