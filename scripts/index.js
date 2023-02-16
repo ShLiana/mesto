@@ -1,107 +1,68 @@
-const profileSection = document.querySelector(".profile"); //ищет секцию профиль
-const popupProfileOpenButton = profileSection.querySelector(".profile__edit-button"); //редактировать профиль - нажимаем на ручку (profile__edit-button)
-const addCardButton = profileSection.querySelector(".profile__add-button"); //кнопка добавления карточек (+)
-const userName = profileSection.querySelector(".profile__user-name"); //вытащим имя пользователя, ктр уже забито в профиле
-const userJob = profileSection.querySelector(".profile__user-job");
-const popupProfile = document.querySelector(".profilePopup"); //ищем профиль по уникальному классу profilePopup
-const formProfileElement = popupProfile.querySelector(".popup__form"); 
-const nameInput = document.querySelector(".popup__input_type_name"); //введенное имя
-const jobInput = document.querySelector(".popup__input_type_job");
-const profileCloseButton = popupProfile.querySelector(".popup__cross"); //закрыть попап профиля
+import { Card } from "./Card.js";
+import { initialCards } from "./initialcards.js";
+import { FormValidator } from "./FormValidator.js";
 
-const cardsTemplate = document.querySelector(".card-template").content; //добавить переменной cardsTemplate значение с классом card-template
-const cardsContainer = document.querySelector(".gallery__list"); //добавить переменную-контейнер cardsContainer, в этот контейнер будут помещаться карточки 
-
-const popupZoom = document.querySelector(".zoomPopup"); //ищем попап Zoom по уникальному классу zoomPopup
-const popupZoomImage = popupZoom.querySelector(".zoomPopup__photo-cards-img"); // фото в большом масштабе
-const popupZoomTitle = popupZoom.querySelector(".zoomPopup__photo-cards-text");
-const zoomCloseButton = popupZoom.querySelector(".popup__cross"); // кнопка закрытия попапа zoom
-
-const popupAddCard = document.querySelector(".addCardPopup"); //ищем попап добавления карточек по уникальному классу addCardsOpen 
-const popupCreateCard = popupAddCard.querySelector(".popup__content"); //кнопка "создать"
-const placeNameInput = popupAddCard.querySelector(".popup__input_type_title"); 
-const placeLinkInput = popupAddCard.querySelector(".popup__input_type_link");
-const addCardCloseButton = popupAddCard.querySelector(".addCardClose"); //закрываем попап addCardPopup,нажимая на х  
-
-const formElement = document.querySelector('.popup__form');
-const formInput = formElement.querySelector('.popup__input');
-const formError = formElement.querySelector(`.${formInput.id}-error`); 
-const submitForAddCard = popupAddCard.querySelector('.popup__save-button'); 
-
+import {
+  profileSection,
+  popupProfileOpenButton,
+  addCardButton,
+  userName,
+  userJob,
+  popupProfile,
+  formProfileElement,
+  nameInput,
+  jobInput,
+  cardsContainer,
+  popupZoom,
+  popupZoomImage,
+  popupZoomTitle,
+  popupAddCard,
+  popupCreateCard,
+  placeNameInput,
+  placeLinkInput,
+  submitForAddCard,
+  validationConfig,
+} from "./constants.js";
 
 //общая функция открытия попапов
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener('keyup', closePopupByEsc);
+  document.addEventListener("keyup", closePopupByEsc);
 }
 
 //общая функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener('keyup', closePopupByEsc); //удаляем обработчик Escape
+  document.removeEventListener("keyup", closePopupByEsc); //удаляем обработчик Escape
 }
 
 //Функция закрытия попапа по нажатию на кнопку "ESC"
 function closePopupByEsc(event) {
-  if (event.key === 'Escape') {
-    const forOpenPopupByEsc = document.querySelector('.popup_opened');
+  if (event.key === "Escape") {
+    const forOpenPopupByEsc = document.querySelector(".popup_opened");
     closePopup(forOpenPopupByEsc);
-   }
-} 
+  }
+}
 
-const popupList = Array.from(document.querySelectorAll('.popup'));
+const popupList = Array.from(document.querySelectorAll(".popup"));
 // Функция закрытия открытого popup по клику по оверлау - Отдельные обработчики для крестиков не нужны, здесь универсально объединены обработчики оверлея и крестиков
 popupList.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
-        if (evt.target.classList.contains('popup_opened')) {
-          closePopup(popup)
-      }
-      if (evt.target.classList.contains('popup__cross')) {
-        closePopup(popup)
-      }
-  })
-})
-
-//создать базовые карточки
-function createCard(item) {
-  const card = cardsTemplate.querySelector(".card").cloneNode(true); //клонировать темплейт, пч это шаблон
-  const likeCard = card.querySelector(".card__like");
-  const deleteCard = card.querySelector(".card__delete");
-  const zoomButton = card.querySelector(".card__image");
-  const cardTitle = card.querySelector(".card__title"); 
-  const cardImage = card.querySelector(".card__image");
-  
-  //присвоить карточкам на странице подписи и ссылки из template
-  cardImage.alt = item.name;
-  cardImage.src = item.link;
-  cardTitle.textContent = item.name;
- 
-  //добавить лайк карточке по клику на likeCard
-  likeCard.addEventListener("click", (evt) => {evt.target.classList.toggle("card__like_active")});
-  //удалить карточку по клину на deleteCard
-  deleteCard.addEventListener("click", (evt) => {evt.target.closest(".card").remove()}); 
-  
-  //открыть карточки в Zoom
-  zoomButton.addEventListener("click", () => {
-    popupZoomImage.src = item.link;
-    popupZoomImage.alt = item.name;
-    popupZoomTitle.textContent = item.name;
-    openPopup(popupZoom);
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("popup_opened")) {
+      closePopup(popup);
+    }
+    if (evt.target.classList.contains("popup__cross")) {
+      closePopup(popup);
+    }
   });
-  return card;
-};
-
-//создать новый массив из исходного 
-initialCards.map(function (item) {
-  cardsContainer.append(createCard(item))
-}); 
+});
 
 //открыть попап профиля, тут же данные о пользователе
 popupProfileOpenButton.addEventListener("click", () => {
   nameInput.value = userName.textContent; // Получите значение полей jobInput и nameInput из свойства value
   jobInput.value = userJob.textContent;
-  openPopup (popupProfile);
-}); 
+  openPopup(popupProfile);
+});
 
 //добавить имя и работу нового пользователя через submit
 function addNewUserInfo(evt) {
@@ -109,10 +70,10 @@ function addNewUserInfo(evt) {
   userName.textContent = nameInput.value; // Получите значение полей jobInput и nameInput из свойства value
   userJob.textContent = jobInput.value;
   closePopup(popupProfile);
-};
+}
 formProfileElement.addEventListener("submit", addNewUserInfo);
 
-function addNewCard (evt) {
+function addNewCard(evt) {
   evt.preventDefault();
   const newCard = {
     name: placeNameInput.value,
@@ -122,22 +83,41 @@ function addNewCard (evt) {
   closePopup(popupAddCard);
   placeNameInput.value = "";
   placeLinkInput.value = "";
-  submitForAddCard.classList.add('popup__save-button_disabled'); //добавим неактивный класс кнопке "добавить", если инпуты не заполнены - работает при повторном открывании после одного добавления карточки
-  submitForAddCard.disabled = true; //сделать кнопку "добавить" неактивной 
-};
+  submitForAddCard.classList.add("popup__save-button_disabled"); //добавим неактивный класс кнопке "добавить", если инпуты не заполнены - работает при повторном открывании после одного добавления карточки
+  submitForAddCard.disabled = true; //сделать кнопку "добавить" неактивной
+}
 popupCreateCard.addEventListener("submit", addNewCard);
 
 //открыть попап добавления новых карточек
 addCardButton.addEventListener("click", () => {
-  openPopup (popupAddCard);
-}); 
+  openPopup(popupAddCard);
+});
 
+//create Card
+function createCard(item) {
+  const card = new Card(item, ".card-template", (name, link) => {
+    popupZoomImage.src = link;
+    popupZoomImage.alt = name;
+    popupZoomTitle.textContent = name;
+    openPopup(popupZoom);
+  });
+  const cardElement = card.generateCard();
+  return cardElement;
+}
 
+//render Card
+const renderCard = (item) => {
+  const cardElement = createCard(item);
+  cardsContainer.prepend(cardElement);
+};
 
+initialCards.forEach(renderCard);
 
+let arrayForms = document.querySelectorAll(".popup__form");
+arrayForms = Array.from(arrayForms);
 
+let arrayValidators = arrayForms.map(
+  (form) => new FormValidator(validationConfig, form)
+);
 
-
-
-
-
+arrayValidators.forEach((form) => form.enableValidation());
