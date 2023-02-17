@@ -22,11 +22,13 @@ export class Card {
     this._element = this._getCardElement();
     this._cardImage = this._element.querySelector('.card__image');
     this._cardTitle = this._element.querySelector('.card__title');
-    this._cardLikeButton = this._element.querySelector('.card__like');
+    this._toggleLikeButton = this._element.querySelector('.card__like');
     this._cardDeleteButton = this._element.querySelector('.card__delete');
 
     this._cardTitle.textContent = this._name;
     this._cardImage.src = this._link;
+    //если картинка не загрузится, то вставится имя этой картинки 
+    this._cardImage.alt = `${this._name}.`;
     
     this._setEventListeners();
     
@@ -36,8 +38,8 @@ export class Card {
 
   //Метод добавления всех обработчиков
   _setEventListeners() {
-    this._cardLikeButton.addEventListener("click", () => {
-      this._cardLike();
+    this._toggleLikeButton.addEventListener("click", () => {
+      this._toggleLike();
     });
 
     this._cardDeleteButton.addEventListener("click", () => {
@@ -51,8 +53,8 @@ export class Card {
   }
 
   //Метод ставит/убирает лайк
-  _cardLike() {
-    this._cardLikeButton.classList.toggle("card__like_active");
+  _toggleLike() {
+    this._toggleLikeButton.classList.toggle("card__like_active");
   }
 
   //Метод слушателя по кнопке "удалить"

@@ -6,12 +6,12 @@ import {
   profileSection,
   popupProfileOpenButton,
   addCardButton,
-  userName,
-  userJob,
+  profileUserName,
+  profileUserJob,
   popupProfile,
   formProfileElement,
-  nameInput,
-  jobInput,
+  profileNameInput,
+  profileJobInput,
   cardsContainer,
   popupZoom,
   popupZoomImage,
@@ -20,7 +20,6 @@ import {
   popupCreateCard,
   placeNameInput,
   placeLinkInput,
-  submitForAddCard,
   validationConfig,
 } from "./constants.js";
 
@@ -59,16 +58,16 @@ popupList.forEach((popup) => {
 
 //открыть попап профиля, тут же данные о пользователе
 popupProfileOpenButton.addEventListener("click", () => {
-  nameInput.value = userName.textContent; // Получите значение полей jobInput и nameInput из свойства value
-  jobInput.value = userJob.textContent;
+  profileNameInput.value = profileUserName.textContent; // Получите значение полей jobInput и nameInput из свойства value
+  profileJobInput.value = profileUserJob.textContent;
   openPopup(popupProfile);
 });
 
 //добавить имя и работу нового пользователя через submit
 function addNewUserInfo(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  userName.textContent = nameInput.value; // Получите значение полей jobInput и nameInput из свойства value
-  userJob.textContent = jobInput.value;
+  profileUserName.textContent = profileNameInput.value; // Получите значение полей jobInput и nameInput из свойства value
+  profileUserJob.textContent = profileJobInput.value;
   closePopup(popupProfile);
 }
 formProfileElement.addEventListener("submit", addNewUserInfo);
@@ -83,8 +82,7 @@ function addNewCard(evt) {
   closePopup(popupAddCard);
   placeNameInput.value = "";
   placeLinkInput.value = "";
-  submitForAddCard.classList.add("popup__save-button_disabled"); //добавим неактивный класс кнопке "добавить", если инпуты не заполнены - работает при повторном открывании после одного добавления карточки
-  submitForAddCard.disabled = true; //сделать кнопку "добавить" неактивной
+  newCardFormValidator.resetValidation();//методы класса FormValidator активируют/деактивируют кнопку сабмита и очищать ошибки в index.js
 }
 popupCreateCard.addEventListener("submit", addNewCard);
 
@@ -113,11 +111,15 @@ const renderCard = (item) => {
 
 initialCards.forEach(renderCard);
 
-let arrayForms = document.querySelectorAll(".popup__form");
-arrayForms = Array.from(arrayForms);
+//поиск форм по уникальным классам
+const editProfileForm = document.querySelector(".editProfileForm");
+const newCardForm = document.querySelector(".newCardForm");
 
-let arrayValidators = arrayForms.map(
-  (form) => new FormValidator(validationConfig, form)
-);
+//создать экземпляр класса FormValidator
+const editProfileFormValidator = new FormValidator(validationConfig, editProfileForm);
+const newCardFormValidator = new FormValidator(validationConfig, newCardForm);
 
-arrayValidators.forEach((form) => form.enableValidation());
+editProfileFormValidator.enableValidation();
+newCardFormValidator.enableValidation();
+
+

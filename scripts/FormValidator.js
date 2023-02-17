@@ -2,7 +2,7 @@ export class FormValidator {
   constructor(config, formElement) {
     this._config = config;
     this._formElement = formElement;
-    this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector)); //найдем элементы DOM 1 раз тут и сделаем их полями класса
     this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
 };
 
@@ -62,6 +62,7 @@ _setEventListeners () {
   });
 };
 
+//метод сброса валидации
 resetValidation() {
   this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
@@ -69,7 +70,7 @@ resetValidation() {
   this._toggleButtonState();
 };
 
-//функция навершивает слушатели для валидации на все формы
+//функция навершивает слушатели для валидации формы
   enableValidation() {
     this._setEventListeners()
   };
