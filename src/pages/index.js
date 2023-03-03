@@ -69,10 +69,7 @@ popupProfileOpenButton.addEventListener("click", () => {
 const addCardPopupForm = new PopupWithForm({
   popupSelector: ".addCardPopup",
   handleFormSubmit: (data) => {
-    const newCard = createCard({
-      name: data["name"],
-      link: data["link"],
-    });
+    const newCard = createCard(data);
     cardList.addItem(newCard);
     addCardPopupForm.close();
   },
