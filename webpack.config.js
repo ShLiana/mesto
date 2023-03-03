@@ -2,9 +2,6 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ghpages = require('gh-pages');
-
-ghpages.publish('dist', function(err) {});
 
 module.exports = {
   entry: { main: "./src/pages/index.js" },
