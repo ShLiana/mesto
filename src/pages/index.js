@@ -45,10 +45,10 @@ const userInfo = new UserInfo({
 //создание попапа редактирования профиля
 const editProfilePopupForm = new PopupWithForm({
   popupSelector: ".profilePopup",
-  handleFormSubmit: (item) => {
+  handleFormSubmit: (data) => {
     userInfo.setUserInfo({
-      name: item["addName"], // в html name="addName"
-      job: item["addJob"],
+      name: data["userName"], // в html name="addName"
+      job: data["userJob"],
     });
     editProfilePopupForm.close();
   },
@@ -65,19 +65,13 @@ popupProfileOpenButton.addEventListener("click", () => {
   editProfilePopupForm.open();
 });
 
-//функция, ктр заносит информацию в инпуты профиля
-function addNewCard({ newCardName, newCardLink }) {
-  newCardName = placeNameInput.value;
-  newCardLink = placeLinkInput.value;
-}
-
 //создание попапа добавления новых карточек
 const addCardPopupForm = new PopupWithForm({
   popupSelector: ".addCardPopup",
-  handleFormSubmit: (item) => {
+  handleFormSubmit: (data) => {
     const newCard = createCard({
-      name: item["placeNameInput"],
-      link: item["placeLinkInput"],
+      name: data["name"],
+      link: data["link"],
     });
     cardList.addItem(newCard);
     addCardPopupForm.close();
