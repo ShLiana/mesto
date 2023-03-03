@@ -24,7 +24,6 @@ export class Card {
     this._cardTitle = this._element.querySelector('.card__title');
     this._toggleLikeButton = this._element.querySelector('.card__like');
     this._cardDeleteButton = this._element.querySelector('.card__delete');
-
     this._cardTitle.textContent = this._name;
     this._cardImage.src = this._link;
     //если картинка не загрузится, то вставится имя этой картинки 

@@ -52,4 +52,4 @@ popupCreateCard,
 placeNameInput,
 placeLinkInput,
 validationConfig,
-}
+} 
