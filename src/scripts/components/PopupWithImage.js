@@ -10,7 +10,6 @@ export class PopupWithImage extends Popup {
   }
 
   open(data) {
-    console.log(data);
     this._popupZoomImage.src = data.link;
     this._popupZoomTitle.textContent = data.name;
     this._popupZoomImage.alt = data.name;

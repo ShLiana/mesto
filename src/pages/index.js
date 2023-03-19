@@ -74,7 +74,6 @@ const editProfilePopupForm = new PopupWithForm({
     api
       .updateUserInfo(data)
       .then((data) => {
-        console.log(data);
         userInfo.setUserInfo(data);
         editProfilePopupForm.close();
       })
@@ -119,17 +118,10 @@ const editUserAvatarPopup = new PopupWithForm({
 });
 editUserAvatarPopup.setEventListeners();
 
-//TODO: убрать try/catch
-try {
-  console.log(editAvatarButton);
   //функция открытия попапа редактирования авы
-  editAvatarButton.addEventListener("click", () => {
-    editUserAvatarPopup.open();
-  });
-
-} catch (e) {
-  console.warn(e);
-}
+editAvatarButton.addEventListener("click", () => {
+  editUserAvatarPopup.open();
+});
 
 //создание новой карточки 
 const createCard = (data) => {
@@ -137,7 +129,7 @@ const createCard = (data) => {
     data: data,
     currentUserId: userInfo.getUserId(),
 
-    handleCardClick: (data) => {
+    handleCardClick: () => {
       zoomPopupImage.open(data);
     },
 
