@@ -8,20 +8,18 @@ export class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-// метод, отвечающий за создание и отрисовку данных на странице
-renderItems(items) {
-  items.forEach((item) => {
-    this._renderer(item)
-  });
-}
+  // метод, отвечающий за создание и отрисовку данных на странице
+  renderItems(items) {
+    items.forEach((item) => {
+      this._renderer(item);
+    });
+  }
 
-// принимает DOM-элемент и добавляет его в контейнер
-addItem(element) {
-  this._container.prepend(element);
+  // принимает DOM-элемент и добавляет его в контейнер
+  addItem(element) {
+    this._container.prepend(element);
+  }
+  addCardAppend(element) {
+    this._container.append(element);
+  }
 }
-addCardAppend(element) {
-  this._container.append(element);
-}
-}
-
-

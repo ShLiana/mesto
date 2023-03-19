@@ -39,7 +39,7 @@ export class Card {
   // метод слушателя по кнопке - "лайк"
   countCardLikes(data) {
     this._likes = data.likes;
-    this._toggleLikeButton.classList.toggle("card__like");
+    this._toggleLikeButton.classList.toggle("card__like_active");
     this._likeCounter.textContent = this._likes.length;
   }
 
@@ -51,7 +51,7 @@ export class Card {
 
   //метод ставит/убирает "лайк"
   _checkLikeState() {
-    if (this._toggleLikeButton.classList.contains("card__like")) {
+    if (this._toggleLikeButton.classList.contains("card__like_active")) {
       this._handleDeleteLike(this._cardId);
     } else {
       this._handleAddLike(this._cardId);
@@ -72,15 +72,13 @@ export class Card {
         return this._currentUserId === user._cardId;
       })
     ) {
-      this._toggleLikeButton.classList.add("card__like");
+      this._toggleLikeButton.classList.add("card__like_active");
     }
   }
 
   //Метод добавления всех обработчиков
   _setEventListeners() {
     this._cardImage.addEventListener("click", () => {
-      //const { _name, _link } = this;
-      //this._handleCardClick(_name, _link);
       this._handleCardClick();
     });
 
@@ -114,9 +112,3 @@ export class Card {
     return this._element;
   }
 }
-
-//Метод ставит/убирает лайк
-//_toggleLike() {
-//this._toggleLikeButton.classList.toggle("card__like_active");
-//}
-//}
