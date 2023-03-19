@@ -2,8 +2,16 @@ export class FormValidator {
   constructor(config, formElement) {
     this._config = config;
     this._formElement = formElement;
+    this._formSelector = config.formSelector;
+    this._inputSelector = config.inputSelector;
+    this._submitButtonSelector = config.submitButtonSelector;
+    this._inputErrorClass = config.inputErrorClass;
+    this._inactiveButtonClass = config.inactiveButtonClass;
+    this._errorClass = config.errorClass;
     this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector)); //найдем элементы DOM 1 раз тут и сделаем их полями класса
     this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
+
+   
 };
 
 // Функция, которая добавляет класс с ошибкой
@@ -69,6 +77,22 @@ resetValidation() {
   });
   this._toggleButtonState();
 };
+
+
+_disableButtonState() {
+  this._buttonElement.classList.add(this._inactiveButtonClass);
+  this._buttonElement.setAttribute("disabled", "disabled");
+}
+
+_enableButtonState() {
+  this._buttonElement.classList.remove(this._inactiveButtonClass);
+  this._buttonElement.removeAttribute("disabled");
+}
+
+_hasInvalidInput() {
+  return this._inputList.some(inputElement => inputElement.validity.valid === false);
+}
+
 
 //функция навершивает слушатели для валидации формы
   enableValidation() {

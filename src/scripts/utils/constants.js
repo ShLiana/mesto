@@ -14,13 +14,23 @@ const popupZoomTitle = popupZoom.querySelector(".zoomPopup__photo-cards-text");
 
 //popup addCard
 const popupAddCard = document.querySelector(".addCardPopup"); //ищем попап добавления карточек по уникальному классу addCardsOpen
+const addCardButton = profileSection.querySelector(".profile__add-button"); //кнопка добавления карточек (+)
 const popupCreateCard = popupAddCard.querySelector(".newCardForm"); //форма создания новой карточки
 const placeNameInput = popupAddCard.querySelector(".popup__input_type_title");
 const placeLinkInput = popupAddCard.querySelector(".popup__input_type_link");
 
+
+//popup avatar
+const popupEditUserAvatar = document.querySelector(".editAvatarPopup");
+const editAvatarButton =  profileSection.querySelector(".profile__edit-avatar-button");
+const formEditUserAvatar = popupEditUserAvatar.querySelector("[name='userName']");
+const userAvatar = document.querySelector(".profile__avatar");
+const avatarForm = popupEditUserAvatar.querySelector (".editProfileAvatarForm");
+
 //buttons
 const popupProfileOpenButton = profileSection.querySelector(".profile__edit-button"); //редактировать профиль - нажимаем на ручку (profile__edit-button)
-const addCardButton = profileSection.querySelector(".profile__add-button"); //кнопка добавления карточек (+)
+
+
 
 const cardsContainer = document.querySelector(".gallery__list"); //добавить переменную-контейнер cardsContainer, в этот контейнер будут помещаться карточки
 
@@ -52,4 +62,9 @@ popupCreateCard,
 placeNameInput,
 placeLinkInput,
 validationConfig,
+editAvatarButton,
+popupEditUserAvatar,
+formEditUserAvatar,
+userAvatar,
+avatarForm
 } 

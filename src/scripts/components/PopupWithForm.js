@@ -7,6 +7,7 @@ export class PopupWithForm extends Popup {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
     this._popupForm = this._popup.querySelector(".popup__form");
+    this._buttonLoading = this._popupForm.querySelector(".popup__save-button");
     this._inputList = this._popupForm.querySelectorAll(".popup__input");
   }
 
@@ -35,4 +36,13 @@ export class PopupWithForm extends Popup {
     super.close(); //это наследование родительского метода close
     this._popupForm.reset(); //при закрытии попапа форма сбрасывается
   }
+
+   //информация о процессе загрузки данных
+   loading(isLoading) {
+    if (isLoading) {
+       this._buttonLoading.textContent = "Сохранение...";
+    } else {
+       this._buttonLoading.textContent = "Сохранить";
+    }
+ }
 }

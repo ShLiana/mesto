@@ -10,5 +10,6 @@
     text-overflow: ellipsis; /*то, что не поместилось, отображается многоточием*/
     white-space: nowrap; /*обработка пробельных символов - слова не переносятся*/
     max-width: 190px;
+    margin-bottom: 4px;
   }
   

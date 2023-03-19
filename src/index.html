@@ -12,18 +12,27 @@
           class="header__logo"
           alt="Логотип"
           src="<%=require('./images/Header-logo.svg')%>"
-                 
         />
       </header>
 
       <main>
         <section class="profile">
           <div class="profile__info">
-            <img
-              class="profile__avatar"
-              src="<%=require('./images/Kusto.svg')%>"
-              alt="Фотография пользователя"
-            />
+            <button
+              type="button"
+              class="profile__edit-avatar-button"
+              aria-label="Редактировать аватар"
+              title="Редактировать аватар"
+            >
+            
+          </button>
+          <img
+          class="profile__avatar"
+          src="<%=require('./images/Kusto.svg')%>"
+          alt="Фотография пользователя"
+        />
+            
+
             <div class="profile__edit-info">
               <div class="profile__user-info">
                 <h1 class="profile__user-name">Жак-Ив Кусто</h1>
@@ -187,6 +196,73 @@
       </div>
     </div>
 
+    <div class="popup deleteCardPopup">
+      <div class="popup__container">
+        <button
+          class="popup__cross"
+          type="button"
+          aria-label="Завершить редактирование"
+          title="Закрыть"
+        ></button>
+        <h2 class="popup__header">Вы уверены?</h2>
+        <form
+        class="popup__form deleteCardForm"
+        name="editAvatar"
+        novalidate
+      >
+          <button
+            class="popup__save-button"
+            type="submit"
+            name="saveForm"
+            disabled="disabled"
+          >
+            Да
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="popup editAvatarPopup">
+      <div class="popup__container">
+        <button
+          class="popup__cross"
+          type="button"
+        ></button>
+        <h2 class="popup__header">Обновить аватар</h2>
+
+        <form
+          class="popup__form editProfileAvatarForm"
+          name="editAvatar"
+          novalidate
+        >
+          
+            <input
+              id="userAvatar"
+              class="popup__input popup__input_type_name"
+              type="url"
+              name="userAvatar"
+              value
+              placeholder="ссылка на аватар"
+              autocomplete="off"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="user-name-input-error popup__input-error"></span>
+          
+           <button
+            class="popup__save-button"
+            type="submit"
+            name="saveForm"
+            disabled="disabled"
+          >
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+
     <template class="card-template">
       <li class="card">
         <button
@@ -204,12 +280,15 @@
 
         <div class="card__caption">
           <h3 class="card__title"></h3>
-          <button
-            class="card__like"
-            type="button"
-            aria-label="Поставить лайк"
-            title="Нравится"
-          ></button>
+          <div class="like__caption">
+            <button
+              class="card__like"
+              type="button"
+              aria-label="Поставить лайк"
+              title="Нравится"
+            ></button>
+            <span class="like__counter">0</span>
+          </div>
         </div>
       </li>
     </template>
