@@ -226,7 +226,7 @@ const newCardFormValidator = new FormValidator(validationConfig, newCardForm);
 editProfileFormValidator.enableValidation();
 newCardFormValidator.enableValidation();
 
-const avatarValidateForm = new FormValidator(formElements, avatarForm);
+const avatarValidateForm = new FormValidator(validationConfig, avatarForm);
 avatarValidateForm.enableValidation();
 
 

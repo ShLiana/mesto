@@ -25,6 +25,7 @@ _showInputError (inputElement, errorMessage) {
 
 // Функция, которая удаляет класс с ошибкой
 _hideInputError = (inputElement) => {
+  console.log(inputElement.id);
   const formError = this._formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(this._config.inputErrorClass); //убираем подчеркивание красным
   formError.classList.remove(this._config.errorClass); //удаляем текст ошибки

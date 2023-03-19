@@ -44,11 +44,12 @@ export class Api {
 
   //обновить аватар пользователя
   updateUserAvatar(data) {
+    console.log(data);
     const promise = fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
       headers: this._getHeaders(),
       body: JSON.stringify({
-        avatar: data.avatar,
+        avatar: data.userAvatar,
       }),
     });
     return promise.then(this._getJson);
