@@ -85,6 +85,7 @@ editProfilePopupForm.setEventListeners();
 
 //открыть попап профиля, тут же данные о пользователе
 popupProfileOpenButton.addEventListener("click", () => {
+  editProfileFormValidator.resetValidation();
   const infoAboutUser = userInfo.getUserInfo();
   addUserInfoPopupForm({
     userName: infoAboutUser.userName,
@@ -101,7 +102,7 @@ const editUserAvatarPopup = new PopupWithForm({
     api
       .updateUserAvatar(data)
       .then((data) => {
-        userAvatar.src = data.avatar;
+        userInfo.setUserInfo(data);
         editUserAvatarPopup.close();
       })
       .catch((err) => {
@@ -116,6 +117,7 @@ editUserAvatarPopup.setEventListeners();
 
 //функция открытия попапа редактирования авы
 editAvatarButton.addEventListener("click", () => {
+  avatarValidateForm.resetValidation();
   editUserAvatarPopup.open();
 });
 
